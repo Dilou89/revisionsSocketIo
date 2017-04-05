@@ -68,6 +68,16 @@
   section#chat #messages li:nth-child(odd) {
     background: #eee;
   }
+
+  section#chat #messages li span.username {
+    display: inline-block;
+    padding: 6px 10px;
+    margin-right: 5px;
+    color: white;
+    background: #e67e22;
+    border-radius: 5px;
+}
+
   section#chat #messages li.logout {
     background: #E5A6A6;
   }
@@ -170,19 +180,8 @@
   </section>
   <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
   <script src="/socket.io/socket.io.js"></script>
+  <script src="/js/app.js"></script>
 
-  <script>
-  $(function () {
-    var socket = io();
-    $('form').submit(function(){
-      socket.emit('chat message', $('#m').val());
-      $('#m').val('');
-      return false;
-    });
-    socket.on('chat message', function(msg){
-      $('#messages').append($('<li>').text(msg));
-    });
-  });
-  </script>
+
 </body>
 </html>
